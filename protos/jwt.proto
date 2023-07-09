@@ -1,0 +1,16 @@
+syntax = "proto3";
+package main;
+
+option go_package = "./";
+
+message JWTRequest {
+    uint32 id = 1;
+}
+
+message JWTResponse {
+    string token = 1;
+}
+
+service JWTService {
+    rpc GetToken(JWTRequest) returns (JWTResponse);
+}
