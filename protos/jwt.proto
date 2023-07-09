@@ -3,14 +3,23 @@ package main;
 
 option go_package = "./";
 
-message JWTRequest {
+message GetTokenRequest {
     uint32 id = 1;
 }
 
-message JWTResponse {
+message GetTokenResponse {
     string token = 1;
+}
+
+message ValidateTokenRequest {
+    string token = 1;
+}
+
+message ValidateTokenResponse {
+    bool valid = 1;
 }
 
 service JWTService {
     rpc GetToken(JWTRequest) returns (JWTResponse);
+    rpc ValidateToken(JWTRequest) returns (JWTResponse);
 }
